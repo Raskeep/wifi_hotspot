@@ -44,30 +44,24 @@ public class OnOfHotspot {
                 netConfig.SSID = hotspotName;
                 netConfig.status = WifiConfiguration.Status.DISABLED;
                 netConfig.priority = 40;
-
+                netConfig.allowedProtocols.set(WifiConfiguration.Protocol.RSN);
+                netConfig.allowedProtocols.set(WifiConfiguration.Protocol.WPA);
+                netConfig.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.WEP40);
+                netConfig.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.WEP104);
+                netConfig.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.CCMP);
+                netConfig.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.TKIP);
+                netConfig.allowedPairwiseCiphers.set(WifiConfiguration.PairwiseCipher.CCMP);
+                netConfig.allowedPairwiseCiphers.set(WifiConfiguration.PairwiseCipher.TKIP);
+                
                 if (spin == 0) {
+                    
                     netConfig.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
-                    netConfig.allowedProtocols.set(WifiConfiguration.Protocol.RSN);
-                    netConfig.allowedProtocols.set(WifiConfiguration.Protocol.WPA);
                     netConfig.allowedAuthAlgorithms.clear();
-                    netConfig.allowedPairwiseCiphers.set(WifiConfiguration.PairwiseCipher.CCMP);
-                    netConfig.allowedPairwiseCiphers.set(WifiConfiguration.PairwiseCipher.TKIP);
-                    netConfig.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.WEP40);
-                    netConfig.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.WEP104);
-                    netConfig.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.CCMP);
-                    netConfig.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.TKIP);
+                    
                 } else if (spin == 1) {
-
-                    netConfig.allowedProtocols.set(WifiConfiguration.Protocol.RSN);
-                    netConfig.allowedProtocols.set(WifiConfiguration.Protocol.WPA);
+                    
                     netConfig.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.WPA_PSK);
-                    netConfig.allowedPairwiseCiphers.set(WifiConfiguration.PairwiseCipher.CCMP);
-                    netConfig.allowedPairwiseCiphers.set(WifiConfiguration.PairwiseCipher.TKIP);
-                    netConfig.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.WEP40);
-                    netConfig.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.WEP104);
-                    netConfig.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.CCMP);
-                    netConfig.allowedGroupCiphers.set(WifiConfiguration.GroupCipher.TKIP);
-
+               
                     netConfig.preSharedKey = password;
                 }
 
